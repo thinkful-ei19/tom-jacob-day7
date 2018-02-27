@@ -24,7 +24,8 @@ const events = (function () {
       Store.fetchVideos(query, function(response) {
         Store.videos = Store.decorateResponse(response);
         console.log(Store.videos);
-        Store.render();
+        const html = Store.generateVideoHtml(Store.videos);
+        Store.render(html);
       });
     //   console.log(Store.addVideosToStore(fetchedVideos)); //start after lunch here
       //render();
