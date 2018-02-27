@@ -21,9 +21,12 @@ const events = (function () {
       let query = $('.query').val(); 
       $('.query').val(''); //not sure how the '' works in the val method
       //   console.log(query);
-      let youtubeJSON = Store.fetchVideos(query, function() {}); //start after lunch here
-      console.log(youtubeJSON);
-      Store.decorateResponse(youtubeJSON);
+      Store.fetchVideos(query, function(response) {
+        Store.videos = Store.decorateResponse(response);
+        console.log(Store.videos);
+        Store.render();
+      });
+    //   console.log(Store.addVideosToStore(fetchedVideos)); //start after lunch here
       //render();
     });
   };
