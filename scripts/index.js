@@ -1,12 +1,10 @@
-const API_KEY = 'YOUR_KEY_HERE';
-
-const store = {
-  videos: []
-};
+/* global $ */
+'use strict';
+const API_KEY = 'AIzaSyDd-ddDT0MeQ9maKwUjbmL5uSxxwCL6Erc';
 
 // TASK: Add the Youtube Search Base URL here:
 // Documentation is here: https://developers.google.com/youtube/v3/docs/search/list#usage
-const BASE_URL = '';
+const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 // TASK:
 // 1. Create a `fetchVideos` function that receives a `searchTerm` and `callback`
@@ -66,11 +64,18 @@ const render = function() {
 //   g) Inside the callback, run the `render` function 
 // TEST IT!
 const handleFormSubmit = function() {
+  $('.go').on('click', event => {
+    event.preventDefault();
+    let query = $('.query').val();
 
+    fetchVideos(query, generateVideoItemHtml());
+    render();
+  });
 };
 
 // When DOM is ready:
 $(function () {
   // TASK:
   // 1. Run `handleFormSubmit` to bind the event listener to the DOM
+  handleFormSubmit();
 });
