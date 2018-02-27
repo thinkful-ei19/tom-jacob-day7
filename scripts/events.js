@@ -1,4 +1,4 @@
-/* global store, Item */
+/* global Store, $ */
 
 'use strict';
 // TASK:
@@ -20,8 +20,10 @@ const events = (function () {
       event.preventDefault();
       let query = $('.query').val(); 
       $('.query').val(''); //not sure how the '' works in the val method
-      console.log(query);
-      fetchVideos(query, decorateResponse()); //start after lunch here
+      //   console.log(query);
+      let youtubeJSON = Store.fetchVideos(query, function() {}); //start after lunch here
+      console.log(youtubeJSON);
+      Store.decorateResponse(youtubeJSON);
       //render();
     });
   };
