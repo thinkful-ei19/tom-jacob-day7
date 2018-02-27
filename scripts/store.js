@@ -37,10 +37,10 @@ const Store = function () {
   const generateVideoItemHtml = function (videos) {
     let videoTitle = 
     `
-      <li class="js-item-element" data-item-id="${videos.id}">
+      <div class="js-item-element" data-item-id="${videos.id}">
         <h1>${videos.title}</h1>
         <a href="https://www.youtube.com/watch?v=${videos.id}"><img src="${videos.thumbnail.url}" ></img></a>
-      </li>`;
+      </div>`;
     return videoTitle;
   };
 

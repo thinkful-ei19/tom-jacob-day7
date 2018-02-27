@@ -31,9 +31,14 @@ const events = (function () {
       //render();
     });
   };
-
+  function lightBox() {
+    $(document).on('lity:open', function (event, instance) {
+      console.log('Lightbox opened');
+    });
+  }
   function bindEventListeners() {
     handleFormSubmit();
+    lightBox();
   }
 
   // This object contains the only exposed methods from this module:
