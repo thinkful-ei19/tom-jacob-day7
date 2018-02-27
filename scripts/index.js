@@ -67,7 +67,7 @@ const handleFormSubmit = function() {
   $('.go').on('click', event => {
     event.preventDefault();
     let query = $('.query').val();
-
+    
     fetchVideos(query, generateVideoItemHtml());
     render();
   });
