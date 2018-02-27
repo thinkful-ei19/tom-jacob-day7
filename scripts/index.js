@@ -61,7 +61,6 @@ const render = function() {
 };
 
 
-
 // When DOM is ready:
 $(function () {
   // TASK:
