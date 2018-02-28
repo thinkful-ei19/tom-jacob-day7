@@ -21,7 +21,7 @@ const Store = function () {
       part: 'snippet',
       key: API_KEY,
       q: searchTerm,
-      type: 'videos'
+      type: 'video'
     };
     $.getJSON(BASE_URL, query, callback);
   };
@@ -39,7 +39,7 @@ const Store = function () {
     `
       <div class="js-item-element" data-item-id="${videos.id}">
         <h1>${videos.title}</h1>
-        <a href="https://www.youtube.com/watch?v=${videos.id}"><img src="${videos.thumbnail.url}" ></img></a>
+        <a href="https://www.youtube.com/watch?v=${videos.id}" data-lity><img src="${videos.thumbnail.url}" ></img></a>
       </div>`;
     return videoTitle;
   };
