@@ -1,17 +1,6 @@
 /* global Store, $ */
 
 'use strict';
-// TASK:
-// 1. Create a `handleFormSubmit` function that adds an event listener to the form
-// 2. The listener should:
-//   a) Prevent default event
-//   b) Retrieve the search input from the DOM
-//   c) Clear the search input field
-//   d) Invoke the `fetchVideos` function, sending in the search value
-//   e) Inside the callback, send the API response through the `decorateResponse` function
-//   f) Inside the callback, add the decorated response into your store using the `addVideosToStore` function
-//   g) Inside the callback, run the `render` function 
-// TEST IT!
 
 // eslint-disable-next-line no-unused-vars
 const events = (function () {
@@ -24,11 +13,13 @@ const events = (function () {
       Store.fetchVideos(query, function(response) {
         Store.videos = Store.decorateResponse(response);
         console.log(Store.videos);
-        const html = Store.generateVideoHtml(Store.videos);
-        Store.render(html);
+        Store.channels = Store.getChannelThumbnail(response);
+        console.log(Store.channels);
+        const page = Store.mergeArrays(Store.videos, Store.channels);
+        console.log(page);
+        Store.render(page);
+        //Store.render(html);
       });
-    //   console.log(Store.addVideosToStore(fetchedVideos)); //start after lunch here
-      //render();
     });
   };
   function lightBox() {
